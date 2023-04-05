@@ -1,0 +1,137 @@
+class Hospital
+{
+  name;
+  Address address;
+  Phone phone;
+  1 <@>- 1..* Team;
+  1 <@>- * Ward;
+  }
+
+class Team
+{
+  name;
+  }
+
+class Ward
+{
+  name;
+  enum Gender { Male, Female};
+  Gender patientsGender;
+  Integer capacity;
+  }
+
+class Doctor
+{
+  String[] specialty;
+  String[] locations;
+ 
+  * -- * Patient;
+  0..* -<@> 0..1 Team;
+}
+
+class Patient
+{
+  id;
+  Gender gender;
+  Integer age;
+   accepted;
+  History sickness;
+  String[] prescriptions;
+  String[] allergies;
+  String[] specialReqs;
+  * -- 1 Ward;
+  * -- 1 Team;
+}
+
+class ConsultantDoctor
+{
+  isA Doctor;
+  1 teamleader -- 0..1 Team ;
+    1 -- * Patient;
+}
+
+class JuniorDoctor
+{
+  isA Doctor;
+}
+
+class Address
+{
+  address;
+}
+
+class Phone
+{
+  phone;
+}
+
+class History
+{
+  sickness;
+}
+
+//$?[End_of_model]$?
+
+namespace -;
+
+
+class Hospital
+{
+  position 357 12 139.966 91.7727;
+  position.association Hospital__Team 0,46 51,0;
+    position.association Hospital__Ward 141,92 0,10;
+}
+
+class Team
+{
+  position 197 175 112.5 58.4625;
+  }
+
+class Ward
+{
+  position 597 169 186.042 92.4167;
+  }
+
+class Doctor
+{
+  position 178 340 134.472 75.4167;
+  position.association Doctor__Patient 135,12 0,10;
+  position.association Doctor__Patient 135,42 0,37;
+      position.association Doctor__Team 61,0 42,58;
+}
+
+class Patient
+{
+  position 609 414 173 177.417;
+  position.association Patient__Ward 29,0 41,92;
+  position.association Patient__Team 20,0 86,58;
+}
+
+class ConsultantDoctor
+{
+  position 81 495 139.667 41.4167;
+  position.association ConsultantDoctor__Team 2,0 0,10;
+  position.association ConsultantDoctor__Team:teamleader 2,0 0,10;
+  position.association ConsultantDoctor:teamleader__Team 2,0 0,10;
+    position.association ConsultantDoctor__Patient 141,36 0,167;
+}
+
+class JuniorDoctor
+{
+  position 310 487 109 41.4625;
+}
+
+class Address
+{
+  position 913 197 127.514 58.4167;
+}
+
+class Phone
+{
+  position 922 299 116.583 58.4167;
+}
+
+class History
+{
+  position 923 412 121.347 58.4167;
+}

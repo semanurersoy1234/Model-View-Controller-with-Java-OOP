@@ -1,0 +1,250 @@
+class Person
+{
+  title;
+  givenName;
+  middleName;
+  familyName;
+  FullName name;
+  Date birthDate;
+  enum Gender { Male, Female};
+  Gender gender;
+  Address homeAddress;
+  Phone phone;
+  }
+
+class Hospital
+{
+  name;
+  Address address;
+  Phone phone;
+  * -- * Person;
+  1 <@>-* Department;
+}
+
+class Patient
+{
+     
+   
+  isA Person;
+id;
+  FullName name;
+  Gender gender;
+  Date birthDate;
+  Integer age;
+   Date accepted;
+  History sickness;
+  String[] prescriptions;
+    String[] allergies;
+  String[] specialReqs;
+}
+
+class Staff
+{
+    isA Person;
+Date joined;
+  String[] education;
+  String[] certification;
+  String[] languages;
+}
+
+class Department
+{
+  1 <@>-* Staff;
+}
+
+class AdministrativeStaff
+{
+  isA Staff;
+}
+
+class TechnicalStaff
+{
+  isA Staff;
+}
+
+class OperationsStaff
+{
+    isA Staff;
+  * -- * Patient;
+}
+
+class FullName
+{
+  fullName;
+}
+
+class History
+{
+  patientSickness;
+}
+
+class Address
+{
+  address;
+}
+
+class Phone
+{
+  phoneNumber;
+}
+
+class Date
+{
+  birthDates;
+}
+
+class Doctor
+{
+    isA OperationsStaff;
+String[] specialty;
+  String[] locations;
+}
+
+class Nurse
+{
+  isA OperationsStaff;
+}
+
+class FrontDeskStaff
+{
+  isA AdministrativeStaff;
+}
+
+class Technician
+{
+  isA TechnicalStaff;
+}
+
+class Technologist
+{
+  isA TechnicalStaff;
+}
+
+class Surgeon
+{
+  isA Doctor;
+}
+
+class Receptionist
+{
+  isA FrontDeskStaff;
+}
+
+class SurgicalTechnologist
+{
+  isA Technologist;
+}
+
+//$?[End_of_model]$?
+
+namespace -;
+
+
+class Person
+{
+  position 79 4 178.613 194.462;
+  }
+
+class Hospital
+{
+  position 362 6 140.075 92.4625;
+    position.association Hospital__Person 0,35 179,37;
+  position.association Department__Hospital 58,92 30,0;
+}
+
+class Patient
+{
+  position 5 259 173.113 194.462;
+}
+
+class Staff
+{
+  position 356 254 165.475 109.463;
+}
+
+class Department
+{
+  position 391 151 109 41.4625;
+  position.association Department__Staff 85,41 125,0;
+}
+
+class AdministrativeStaff
+{
+  position 437 422 109 41.4625;
+}
+
+class TechnicalStaff
+{
+  position 643 421 109 41.4625;
+}
+
+class OperationsStaff
+{
+  position 236 426 127.6 41;
+    position.association OperationsStaff__Patient 0,16 174,160;
+}
+
+class FullName
+{
+  position 580 56 134.475 58.4625;
+}
+
+class History
+{
+  position 754 58 179.863 74.4625;
+}
+
+class Address
+{
+  position 781 150 127.287 67.4625;
+}
+
+class Phone
+{
+  position 561 155 169.663 58.4625;
+}
+
+class Date
+{
+  position 694 241 109 41;
+}
+
+class Doctor
+{
+  position 99 512 146.337 75.4625;
+}
+
+class Nurse
+{
+  position 284 514 109 41.4625;
+}
+
+class FrontDeskStaff
+{
+  position 447 508 123.2 41.4625;
+}
+
+class Technician
+{
+  position 604 507 109 41.4625;
+}
+
+class Technologist
+{
+  position 770 506 109 41.4625;
+}
+
+class Surgeon
+{
+  position 116 624 109 41;
+}
+
+class Receptionist
+{
+  position 464 626 109 41;
+}
+
+class SurgicalTechnologist
+{
+  position 743 600 139.938 56;
+}

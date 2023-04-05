@@ -1,0 +1,104 @@
+class Patient
+{
+  1 -- * Treatment;
+  1 -- * Prescription;
+}
+
+class Doctor
+{
+  * -- * Treatment;
+  * -- * Prescription;
+  1 -- * Examination;
+    * -- * Patient;
+}
+
+class Examination
+{
+  * -- 1 Patient;
+}
+
+class Diagnosis
+{
+  * -- * Prescription;
+  * -- * Doctor;
+  * -- 1 Patient;
+  * -- * Examination;
+  * -- * Treatment;
+}
+
+class Prescription
+{
+  1 -- * Therapy;
+}
+
+class Treatment
+{
+}
+
+class Therapy
+{
+  isA Treatment;
+}
+
+class Surgery
+{
+  isA Treatment;
+}
+
+
+
+namespace -;
+
+
+class Patient
+{
+  position 121 62 109 41;
+  position.association Patient__Treatment 32,33 11,0;
+  position.association Patient__Prescription 23,40 0,10;
+}
+
+class Doctor
+{
+  position 765 42 109 42.5868;
+  position.association Doctor__Treatment 104,39 81,0;
+  position.association Doctor__Prescription 79,41 110,4;
+  position.association Doctor__Examination 0,15 92,0;
+    position.association Doctor__Patient 0,2 88,0;
+}
+
+class Examination
+{
+  position 359 168 109 42.5868;
+  position.association Examination__Patient 39,0 110,30;
+}
+
+class Diagnosis
+{
+  position 362 297 109 42.5868;
+  position.association Diagnosis__Prescription 48,28 61,0;
+  position.association Diagnosis__Doctor 110,0 0,39;
+  position.association Diagnosis__Patient 15,0 99,41;
+  position.association Diagnosis__Examination 46,0 56,11;
+  position.association Diagnosis__Treatment 71,17 45,0;
+}
+
+class Prescription
+{
+  position 252 463 109 42.5868;
+  position.association Prescription__Therapy 44,39 30,0;
+}
+
+class Treatment
+{
+  position 477 580 109 42.5868;
+}
+
+class Therapy
+{
+  position 375 709 109 42.5868;
+}
+
+class Surgery
+{
+  position 607 713 109 42.5868;
+}//$?[End_of_model]$?
